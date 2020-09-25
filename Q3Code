@@ -1,0 +1,5 @@
+#A script that will generate a variable that contains the minimum earnings of people with 12 years of education
+echo "People with a college degree earn on average this much more:"
+val1=$(cat wages.csv | tr "," " " | cut -d " " -f 3,4 | grep "16 " | sort -n -k 2 | head -n 1 | cut -d " " -f 2)
+val2=$(cat wages.csv | tr "," " " | cut -d " " -f 3,4 | grep "12 " | sort -n -k 2 | head -n 1 | cut -d " " -f 2)
+echo "$val1 - $val2" | bc
